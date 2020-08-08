@@ -21,6 +21,18 @@ connection.connect(function(err) {
     return;
   }
   console.log("connected as id " + connection.threadId);
+  connection.query(`
+    DROP TABLE IF EXISTS burgers;
+  `, function(){
+    connection.query(
+      `CREATE TABLE burgers (
+          id INT NOT NULL AUTO_INCREMENT,
+          burger_name VARCHAR(50) NOT NULL,
+          devoured BOOL NOT NULL,
+          PRIMARY KEY (id)
+      );`
+    );
+  });
 });
 
 // Export connection for our ORM to use.
