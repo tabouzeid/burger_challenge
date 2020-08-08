@@ -1,12 +1,17 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
+var db_host = process.env.DB_URL || "localhost";
+var db_username = process.env.DB_USERNAME || "root";
+var db_password = process.env.DB_PASSWORD || "password";
+var db_database = process.env.DB_DATABASE || "burgers_db";
+
 var connection = mysql.createConnection({
-  host: "localhost",
+  host: db_host,
   port: 3306,
-  user: "root",
-  password: "password",
-  database: "burgers_db"
+  user: db_username,
+  password: db_password,
+  database: db_database
 });
 
 // Make connection.
