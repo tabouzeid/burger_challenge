@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <img class="rounded mx-auto d-block" src="assets/img/burger_img.png" alt="Burger Image">
+      <h1 class="text-center">Eat-Da-Burger!</h1>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <h2 class="text-center">Queued!</h2>
+      <div class="list-group">
+        {{#each queued }}
+          <button class="list-group-item list-group-item-action" data-id="{{id}}" type="button">{{burger_name}}</button>
+        {{/each}}
+      </div>
+    </div>
+    <div class="col-6">
+      <h2 class="text-center">Devoured!</h2>
+      <ul class="list-group">
+        {{#each devoured }}
+        <li class="list-group-item">{{burger_name}}</li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <form action="/" method="POST">
+        <input class="" type="text" name="burger_name" />
+        <button class="btn" type="submit">Submit</button>
+      </form>
+      <span>Enter a burger you want to eat and Click the "Submit" button.</span>
+    </div>
+  </div>
+</div>
